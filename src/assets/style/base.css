@@ -17,7 +17,7 @@ body {
     Microsoft YaHei, "微软雅黑", Arial, sans-serif;
 }
 
-#app {
+#root {
   height: 100%;
   width: 100%;
   color: var(--ll-color-font-0);

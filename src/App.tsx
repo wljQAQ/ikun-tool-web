@@ -10,13 +10,7 @@ import { useRoutes } from 'react-router-dom';
 import routes from '@/router/index';
 
 const App = memo(() => {
-  return (
-    <div className="app">
-      <header>header</header>
-      <Suspense fallback="loading">{useRoutes(routes)}</Suspense>
-      <footer>footer</footer>
-    </div>
-  );
+  return <Suspense fallback="loading">{useRoutes(routes)}</Suspense>;
 });
 
 App.displayName = 'App';
