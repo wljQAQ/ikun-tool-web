@@ -1,6 +1,7 @@
-import { Layout, theme } from 'antd';
+import { Layout, theme, Divider, Card } from 'antd';
+import styles from './home.module.less';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
 const Home = () => {
   const {
@@ -9,15 +10,25 @@ const Home = () => {
 
   return (
     <Layout style={{ height: '100%', width: '100%' }}>
-      <Header style={{ background: colorBgContainer }}>
+      <Header className="border-bottom" style={{ background: colorBgContainer }}>
         <h2>IKUN TOOL</h2>
       </Header>
 
       <Layout>
-        <Sider theme="light" breakpoint="lg" collapsedWidth="0">
-          1
-        </Sider>
-        <Content>2</Content>
+        <Content
+          className={styles.container}
+          style={{
+            background: colorBgContainer
+          }}
+        >
+          <span className={styles.title}>全部模块</span>
+          <Divider />
+          <Card title="Pdf To Word" style={{ width: 300 }} hoverable>
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </Card>
+        </Content>
       </Layout>
     </Layout>
   );
