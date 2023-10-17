@@ -6,11 +6,13 @@
  * @Description:
  */
 import { lazy } from 'react';
+import type { RouteObject } from 'react-router-dom';
 
 const Home = lazy(() => import('@/views/Home'));
 const Test = lazy(() => import('@/views/Test'));
+const Pdf = lazy(() => import('@/views/Pdf'));
 
-const routes = [
+const routes: RouteObject[] = [
   {
     path: '/',
     element: <Home />
@@ -18,6 +20,10 @@ const routes = [
   {
     path: '/test',
     element: <Test />
+  },
+  {
+    path: '/pdf',
+    element: <Pdf />
   }
 ];
 

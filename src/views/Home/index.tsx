@@ -1,15 +1,22 @@
-import { Layout, theme, Divider, Card, Row, Col } from 'antd';
+import { Layout, theme, Divider, Card, Row, Col, Typography, Button } from 'antd';
 import styles from './home.module.less';
-import Tool from './components/Tool';
+import IconFont from '@/components/Iconfont';
+import { useNavigate } from 'react-router-dom';
 
 const { Header, Content } = Layout;
+const { Title, Text } = Typography;
 
 const tools = new Array(10).fill({ title: 'pdf' });
-console.log(tools);
 const Home = () => {
   const {
     token: { colorBgContainer }
   } = theme.useToken();
+
+  const navigate = useNavigate();
+
+  function handleTool() {
+    navigate('/pdf');
+  }
 
   return (
     <Layout style={{ height: '100%', width: '100%' }}>
@@ -24,13 +31,8 @@ const Home = () => {
             background: colorBgContainer
           }}
         >
-          <span className={styles.title}>全部模块</span>
+          <Title level={3}>全部模块</Title>
           <Divider />
-          <Card title="Pdf To Word" style={{ width: 300 }} hoverable>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
           <Row
             gutter={[
               { xs: 8, sm: 16, md: 24 },
@@ -39,8 +41,16 @@ const Home = () => {
           >
             {tools.map((i, idx) => {
               return (
-                <Col key={idx} xs={12} sm={8} md={6} lg={4} xl={4}>
-                  <div className={styles.tool}>123</div>
+                <Col key={idx} xs={12} sm={8} md={4} lg={4} xl={3} onClick={handleTool}>
+                  <Row className={styles.tool} align={'middle'}>
+                    <Col span={5}>
+                      <IconFont type="ikun-pdf" style={{ fontSize: '20px' }} />
+                    </Col>
+                    <Col>
+                      <div className={styles.title}>PDF To Word</div>
+                      <Text type="secondary">将 pdf 转成 word</Text>
+                    </Col>
+                  </Row>
                 </Col>
               );
             })}
